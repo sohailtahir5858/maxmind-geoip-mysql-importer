@@ -27,7 +27,7 @@ You can install the required libraries using `pip`:
 
 ```bash
 pip install mysql-connector-python maxminddb
-
+```
 ## Setup
 
 ### 1. Clone the Repository
@@ -37,6 +37,7 @@ Clone this repository to your local machine:
 ```bash
 git clone https://github.com/your-username/geoip-to-mysql.git
 cd geoip-to-mysql
+```
 
 ### 2. Prepare the .mmdb File
 
@@ -54,6 +55,7 @@ mysql_config = {
     'password': 'your_password',
     'database': 'logomaker-imagine'
 }
+```
 
 Replace the placeholders with your MySQL credentials.
 
@@ -71,15 +73,11 @@ CREATE TABLE IF NOT EXISTS geoip (
     country_name VARCHAR(255),
     UNIQUE KEY unique_ip_range (ip_range_start, ip_range_end)
 );
-
+```
 - ip_range_start: Start of the IP range.
-
 - ip_range_end: End of the IP range.
-
 - geoname_id: Geoname ID of the country.
-
 - country_iso_code: ISO code of the country (e.g., AU for Australia).
-
 - country_name: Name of the country in English.
 
 ## Execution
@@ -90,17 +88,14 @@ CREATE TABLE IF NOT EXISTS geoip (
 
 ```bash
 python geoip_to_mysql.py
-
+```
 ### 2. Expected Output
 
 The script will:
 
 - Create the geoip table (if it doesn’t exist).
-
 - Read the .mmdb file and insert data into the MySQL table.
-
 - Skip IPv6 addresses and invalid IP ranges.
-
 - Log progress and errors to the console.
 
 ### Example output:
@@ -111,6 +106,7 @@ Inserted data for IP range: 223.255.255.0 - 223.255.255.255
 Skipping duplicate IP range: 223.255.255.0 - 223.255.255.255
 Data inserted successfully.
 MySQL connection closed.
+```
 
 ## License
 
@@ -119,5 +115,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## Acknowledgments
 
 - MaxMind for providing the GeoIP databases.
-
 - Python ipaddress module for IP address handling.
